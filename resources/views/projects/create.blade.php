@@ -11,7 +11,7 @@
 <body>
     <div id="app" class="container">
         
-        <form method="POST" action="/projects" @submit="onSubmit">
+        <form method="POST" action="/projects" @submit.prevent="onSubmit">
             <div class="control">
                 <label for="name" class="label">Project Name:</label>
                 

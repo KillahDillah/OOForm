@@ -13698,7 +13698,11 @@ new Vue({
         name: '',
         description: ''
     },
-    methods: {}
+    methods: {
+        onSubmit: function onSubmit() {
+            alert('submit');
+        }
+    }
 });
 
 /***/ }),
