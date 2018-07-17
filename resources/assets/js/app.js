@@ -13,6 +13,8 @@ new Vue({
         description: '',
     },
     methods: {
-
+        onSubmit() {
+            alert ('submit');
+        }
     }
 });
