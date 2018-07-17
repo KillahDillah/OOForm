@@ -8,14 +8,16 @@
         <title>Laravel</title>
     </head>
     <body>
-         <!-- <div id="root"> -->
+         <div id="app">
 
-            <!-- <example-component></example-component> --> 
+            <ul>
+                <li v-for="skill in skills" v-text="skill"></li>
+            </ul>
              
-         <!-- </div> -->
+         </div>
 
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <!-- <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script> -->
+        <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
         <script src="/js/app.js"></script>
      </body> 
 </html>

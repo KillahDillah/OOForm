@@ -13700,7 +13700,7 @@ new Vue({
     },
     methods: {
         onSubmit: function onSubmit() {
-            axios.post('projects', this.$data);
+            axios.post('/projects', this.$data);
         }
     }
 });

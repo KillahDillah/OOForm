@@ -1,7 +1,7 @@
 <?php
-namespace app\Http\Controllers;
-use app\Project;
-class ProjectsController 
+namespace App\Http\Controllers;
+use App\Project;
+class ProjectsController extends Controller
 {
     /**
      * Show the page to create a new project.
@@ -19,7 +19,7 @@ class ProjectsController
     {
         $this->validate(request(), [
             'name' => 'required',
-            "description" => 'required'
+            'description' => 'required'
         ]); 
         Project::forceCreate([
             'name' => request('name'),
