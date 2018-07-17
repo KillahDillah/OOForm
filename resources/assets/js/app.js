@@ -14,7 +14,7 @@ new Vue({
     },
     methods: {
         onSubmit() {
-            alert ('submit');
+            axios.post('projects', this.$data);
         }
     }
 });

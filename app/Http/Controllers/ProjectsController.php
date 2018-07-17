@@ -1,7 +1,7 @@
 <?php
-namespace App\Http\Controllers;
-use App\Project;
-class ProjectsController extends Controller
+namespace app\Http\Controllers;
+use app\Project;
+class ProjectsController 
 {
     /**
      * Show the page to create a new project.
