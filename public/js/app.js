@@ -94,6 +94,11 @@ var Errors = function () {
             return this.errors.hasOwnProperty(field);
         }
     }, {
+        key: 'any',
+        value: function any() {
+            return Object.keys(this.errors).length > 0;
+        }
+    }, {
         key: 'get',
         value: function get(field) {
             if (this.errors[field]) {
