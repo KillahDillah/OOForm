@@ -129,6 +129,7 @@ var Form = function () {
         for (var field in data) {
             this[field] = data[field];
         }
+        this.errors = new Errors();
     }
 
     _createClass(Form, [{
@@ -148,15 +149,14 @@ new Vue({
         form: new Form({ //create new class with name and description passed with it
             name: '',
             description: ''
-        }),
-        errors: new Errors()
+        })
     },
     methods: {
         onSubmit: function onSubmit() {
             var _this = this;
 
             axios.post('/projects', this.$data).then(this.onSuccess).catch(function (error) {
-                return _this.errors.record(error.response.data.errors);
+                return _this.form.errors.record(error.response.data.errors);
             }); // need to create a new function to handle record
 
             console.log(this.errors);

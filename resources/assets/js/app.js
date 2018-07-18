@@ -29,6 +29,7 @@ class Form {
         for (let field in data) {
             this[field] = data[field];
         }
+        this.errors = new Errors();
     }
     reset () {
 
@@ -45,14 +46,13 @@ new Vue({
         form: new Form ({       //create new class with name and description passed with it
             name: '',
             description: ''
-        }),
-        errors: new Errors()
+        })
     },
     methods: {
         onSubmit() {
             axios.post('/projects', this.$data)
                 .then(this.onSuccess)
-                .catch(error => this.errors.record(error.response.data.errors));  // need to create a new function to handle record
+                .catch(error => this.form.errors.record(error.response.data.errors));  // need to create a new function to handle record
 
                 console.log(this.errors);
         },
