@@ -10,10 +10,13 @@ new Vue({
     data: {
         name: '',
         description: '',
+        errors: {},
     },
     methods: {
         onSubmit() {
-            axios.post('/projects', this.$data);
+            axios.post('/projects', this.$data)
+                .then(response => alert ('No error!'))
+                .catch(error => this.errors = error.response.data);
         }
     }
 });

@@ -13695,11 +13695,18 @@ new Vue({
     el: '#app',
     data: {
         name: '',
-        description: ''
+        description: '',
+        errors: {}
     },
     methods: {
         onSubmit: function onSubmit() {
-            axios.post('/projects', this.$data);
+            var _this = this;
+
+            axios.post('/projects', this.$data).then(function (response) {
+                return alert('No error!');
+            }).catch(function (error) {
+                return _this.errors = error.response.data;
+            });
         }
     }
 });
