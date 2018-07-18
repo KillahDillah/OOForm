@@ -13684,6 +13684,9 @@ module.exports = __webpack_require__(36);
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 __webpack_require__(12);
 
@@ -13691,12 +13694,37 @@ __webpack_require__(12);
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
+var Errors = function () {
+    function Errors() {
+        _classCallCheck(this, Errors);
+
+        //accept errors 
+        this.errors = {}; //store errors
+    }
+
+    _createClass(Errors, [{
+        key: 'get',
+        value: function get(field) {
+            if (this.errors[field]) {
+                this.errors[field][0];
+            }
+        }
+    }, {
+        key: 'record',
+        value: function record(errors) {
+            this.errors = errors;
+        }
+    }]);
+
+    return Errors;
+}();
+
 new Vue({
     el: '#app',
     data: {
         name: '',
         description: '',
-        errors: {}
+        errors: new Errors()
     },
     methods: {
         onSubmit: function onSubmit() {
@@ -13705,8 +13733,8 @@ new Vue({
             axios.post('/projects', this.$data).then(function (response) {
                 return alert('No error!');
             }).catch(function (error) {
-                return _this.errors = error.response.data;
-            });
+                return _this.errors.record(error.response.data);
+            }); // need to create a new function to handle record
         }
     }
 });
