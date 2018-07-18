@@ -131,13 +131,16 @@ new Vue({
         onSubmit: function onSubmit() {
             var _this = this;
 
-            axios.post('/projects', this.$data).then(function (response) {
-                return alert('No error!');
-            }).catch(function (error) {
+            axios.post('/projects', this.$data).then(this.onSuccess).catch(function (error) {
                 return _this.errors.record(error.response.data.errors);
             }); // need to create a new function to handle record
 
             console.log(this.errors);
+        },
+        onSuccess: function onSuccess(response) {
+            alert(response.data.message);
+            this.name = "";
+            this.description = "";
         }
     }
 });

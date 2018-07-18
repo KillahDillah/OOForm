@@ -34,10 +34,16 @@ new Vue({
     methods: {
         onSubmit() {
             axios.post('/projects', this.$data)
-                .then(response => alert ('No error!'))
+                .then(this.onSuccess)
                 .catch(error => this.errors.record(error.response.data.errors));  // need to create a new function to handle record
 
                 console.log(this.errors);
+        },
+
+        onSuccess(response) {
+            alert(response.data.message);
+            this.name = "";
+            this.description = "";
         }
         
     }
