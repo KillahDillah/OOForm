@@ -23,12 +23,29 @@ class Errors {
     }
 }
 
+class Form {            
+    constructor(data) {    //takes in name and description that was passed with it
+        this.data = data;
+        for (let field in data) {
+            this[field] = data[field];
+        }
+    }
+    reset () {
+
+    }
+    submit () {
+
+    }
+}
+
 
 new Vue({
     el: '#app',
     data: {
-        name: '',
-        description: '',
+        form: new Form ({       //create new class with name and description passed with it
+            name: '',
+            description: ''
+        }),
         errors: new Errors()
     },
     methods: {
@@ -42,8 +59,7 @@ new Vue({
 
         onSuccess(response) {
             alert(response.data.message);
-            this.name = "";
-            this.description = "";
+            form.reset();   // reset form once submitted
         }
         
     }

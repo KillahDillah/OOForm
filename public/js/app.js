@@ -120,11 +120,35 @@ var Errors = function () {
     return Errors;
 }();
 
+var Form = function () {
+    function Form(data) {
+        _classCallCheck(this, Form);
+
+        //takes in name and description that was passed with it
+        this.data = data;
+        for (var field in data) {
+            this[field] = data[field];
+        }
+    }
+
+    _createClass(Form, [{
+        key: 'reset',
+        value: function reset() {}
+    }, {
+        key: 'submit',
+        value: function submit() {}
+    }]);
+
+    return Form;
+}();
+
 new Vue({
     el: '#app',
     data: {
-        name: '',
-        description: '',
+        form: new Form({ //create new class with name and description passed with it
+            name: '',
+            description: ''
+        }),
         errors: new Errors()
     },
     methods: {
@@ -139,8 +163,7 @@ new Vue({
         },
         onSuccess: function onSuccess(response) {
             alert(response.data.message);
-            this.name = "";
-            this.description = "";
+            form.reset(); // reset form once submitted
         }
     }
 });
