@@ -15,8 +15,8 @@
         <form method="POST" action="/projects" @submit.prevent="onSubmit">
             <div class="control">
                 <label for="name" class="label">Project Name:</label>
-                
                 <input type="text" id="name" name="name" class="input" v-model="name"> 
+                <span class="help is-danger" v-text="errors.get('name')"></span>
 
             </div>
 
