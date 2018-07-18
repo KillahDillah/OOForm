@@ -13691,7 +13691,6 @@ __webpack_require__(12);
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-
 new Vue({
     el: '#app',
     data: {
