@@ -11,6 +11,10 @@ class Errors {
     record (errors) {
         this.errors = errors; // push errors that came through to errors object
     }
+
+    clear(field) {
+        delete this.errors[field];
+    }
 }
 
 

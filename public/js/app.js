@@ -99,6 +99,11 @@ var Errors = function () {
         value: function record(errors) {
             this.errors = errors; // push errors that came through to errors object
         }
+    }, {
+        key: 'clear',
+        value: function clear(field) {
+            delete this.errors[field];
+        }
     }]);
 
     return Errors;
