@@ -3,6 +3,9 @@ class Errors {
     constructor() { //accept errors 
         this.errors = {}; //store errors
     }
+    has (field) {      // if this.errors contains a field
+        return this.errors.hasOwnProperty(field);
+    }
     get (field) {
         if (this.errors[field]) {
             return this.errors[field][0];

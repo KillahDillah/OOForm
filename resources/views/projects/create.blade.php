@@ -22,7 +22,7 @@
             <div class="control">
                 <label for="description" class="label">Project Description:</label>
                 <input type="text" id="description" name="description" class="input" v-model="description">
-                <span class="help is-danger" v-if="errors.has('name')" v-text="errors.get('description')"></span>
+                <span class="help is-danger" v-if="errors.has('description')" v-text="errors.get('description')"></span>
             </div>
 
             <div class="control">

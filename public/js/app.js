@@ -88,6 +88,12 @@ var Errors = function () {
     }
 
     _createClass(Errors, [{
+        key: 'has',
+        value: function has(field) {
+            // if this.errors contains a field
+            return this.errors.hasOwnProperty(field);
+        }
+    }, {
         key: 'get',
         value: function get(field) {
             if (this.errors[field]) {
